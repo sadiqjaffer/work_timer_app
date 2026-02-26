@@ -1,0 +1,27 @@
+name: checkin_app
+description: "A professional Flutter work timer app with location and notifications."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  shared_preferences: ^2.2.2
+  # قم بتحديث هذا السطر تحديداً
+  intl: ^0.20.2
+  geolocator: ^10.1.0
+  flutter_local_notifications: ^17.0.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  # تفعيل نظام Material Design للأيقونات والأزرار
+  uses-material-design: true
