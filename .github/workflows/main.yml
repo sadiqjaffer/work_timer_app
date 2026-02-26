@@ -1,0 +1,34 @@
+name: Build Flutter App
+
+on:
+  push:
+    branches:
+      - master # أو main حسب اسم الفرع عندك
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build APK (Android)
+        run: flutter build apk --release
+
+      - name: Build Web
+        run: flutter build web --release
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-files
+          path: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/web
