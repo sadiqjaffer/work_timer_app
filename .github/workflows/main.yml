@@ -3,13 +3,13 @@ name: Build Flutter App
 on:
   push:
     branches:
-      - master # أو main حسب اسم الفرع عندك
+      - master # تأكد أنه master أو main حسب فرعك
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4 # تم التحديث إلى v4
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -26,7 +26,7 @@ jobs:
         run: flutter build web --release
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # تم التحديث إلى v4 لإصلاح الخطأ
         with:
           name: release-files
           path: |
