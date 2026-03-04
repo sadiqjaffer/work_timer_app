@@ -1,0 +1,13 @@
+workflows:
+  flutter-ios-workflow:
+    name: Flutter iOS Workflow
+    instance_type: mac_mini_m1
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Flutter build ipa
+        script: |
+          flutter build ipa --release --no-codesign
+    artifacts:
+      - build/ios/ipa/*.ipa
